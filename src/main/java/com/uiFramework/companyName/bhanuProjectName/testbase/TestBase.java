@@ -26,6 +26,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
+import com.uiFramework.companyName.bhanuProjectName.utils.ExtentManager;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.BrowserType;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.ChromeBrowser;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.FirefoxBrowser;
@@ -34,7 +35,6 @@ import com.uiFramework.companyName.projectName.helper.browserConfiguration.confi
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.config.PropertyReader;
 import com.uiFramework.companyName.projectName.helper.resource.ResourceHelper;
 import com.uiFramework.companyName.projectName.helper.wait.WaitHelper;
-import com.uiFramework.companyName.projectName.utils.ExtentManager;
 /**
  * 
  * @author Bhanu Pratap Singh
