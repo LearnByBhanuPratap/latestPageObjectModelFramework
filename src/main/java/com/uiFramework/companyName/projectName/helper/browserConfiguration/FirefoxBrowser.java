@@ -44,5 +44,12 @@ public class FirefoxBrowser {
 		}
 		return null;
 	}
+	
+	public static void main(String[] args) {
+		FirefoxBrowser obj = new FirefoxBrowser();
+		WebDriver driver = obj.getFirefoxDriver(obj.getFirefoxOptions());
+		driver.get("https://www.zomato.com/bangalore/punjabi-nawabi-hsr/order/LoqDdXx");
+	}
+
 
 }
