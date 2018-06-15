@@ -3,19 +3,20 @@
 
 <suite name="Regression Suite">
     <listeners>
-        <listener class-name="com.uiFramework.companyName.bhanPprojectName.helper.listener.RetryListener"></listener>
+        <!-- <listener class-name="com.uiFramework.companyName.bhanProjectName.helper.listener.RetryListener"></listener> -->
+        <listener class-name="com.uiFramework.companyName.bhanuProjectName.helper.listener.ExtentListener"></listener>
     </listeners>
-    <test name="FirstTest">
+    <test name="A">
         <classes>
             <class name="com.uiFramework.A"></class>
         </classes>
     </test>
-     <test name="SecondTest">
+     <test name="B">
         <classes>
             <class name="com.uiFramework.B"></class>
         </classes>
     </test>
-     <test name="ThirdTest">
+     <test name="C">
         <classes>
             <class name="com.uiFramework.C"></class>
         </classes>
