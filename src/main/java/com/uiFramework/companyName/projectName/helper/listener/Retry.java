@@ -4,8 +4,12 @@ import org.apache.log4j.Logger;
 import org.testng.IRetryAnalyzer;
 import org.testng.ITestResult;
 
-import com.uiFramework.companyName.projectName.helper.logger.LoggerHelper;
-
+import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class Retry implements IRetryAnalyzer{
 	private int retryCount = 0;
 	private int maxRetryCount = 3;

@@ -8,8 +8,13 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-import com.uiFramework.companyName.projectName.helper.logger.LoggerHelper;
+import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class DropDownHelper {
 	
     private WebDriver driver;

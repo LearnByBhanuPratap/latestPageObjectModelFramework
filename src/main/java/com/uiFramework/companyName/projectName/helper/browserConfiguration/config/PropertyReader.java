@@ -6,7 +6,11 @@ import java.util.Properties;
 
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.BrowserType;
 import com.uiFramework.companyName.projectName.helper.resource.ResourceHelper;
-
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class PropertyReader implements ConfigReader {
 
 	private static FileInputStream file;

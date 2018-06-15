@@ -15,8 +15,12 @@ import org.openqa.selenium.support.ui.FluentWait;
 import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import com.uiFramework.companyName.projectName.helper.logger.LoggerHelper;
-
+import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class WaitHelper {
 
 	private WebDriver driver;

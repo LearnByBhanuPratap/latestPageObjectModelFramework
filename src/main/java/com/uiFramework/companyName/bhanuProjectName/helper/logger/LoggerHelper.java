@@ -1,10 +1,14 @@
-package com.uiFramework.companyName.projectName.helper.logger;
+package com.uiFramework.companyName.bhanuProjectName.helper.logger;
 
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
 import com.uiFramework.companyName.projectName.helper.resource.ResourceHelper;
-
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class LoggerHelper {
 
 	private static boolean root=false;

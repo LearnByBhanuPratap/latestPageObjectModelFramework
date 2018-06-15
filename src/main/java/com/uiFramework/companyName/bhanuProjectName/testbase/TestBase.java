@@ -1,4 +1,4 @@
-package com.uiFramework.companyName.projectName.testbase;
+package com.uiFramework.companyName.bhanuProjectName.testbase;
 
 import java.io.File;
 import java.lang.reflect.Method;
@@ -25,17 +25,21 @@ import org.testng.annotations.BeforeTest;
 import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.Status;
+import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.BrowserType;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.ChromeBrowser;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.FirefoxBrowser;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.IExploreBrowser;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.projectName.helper.browserConfiguration.config.PropertyReader;
-import com.uiFramework.companyName.projectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.projectName.helper.resource.ResourceHelper;
 import com.uiFramework.companyName.projectName.helper.wait.WaitHelper;
 import com.uiFramework.companyName.projectName.utils.ExtentManager;
-
+/**
+ * 
+ * @author Bhanu Pratap Singh
+ *
+ */
 public class TestBase {
 	
 	public static ExtentReports extent;
