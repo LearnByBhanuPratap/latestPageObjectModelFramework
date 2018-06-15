@@ -3,7 +3,7 @@ package com.uiFramework.companyName.bhanuProjectName.helper.logger;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PropertyConfigurator;
 
-import com.uiFramework.companyName.projectName.helper.resource.ResourceHelper;
+import com.uiFramework.companyName.bhanuProjectName.helper.resource.ResourceHelper;
 /**
  * 
  * @author Bhanu Pratap Singh
