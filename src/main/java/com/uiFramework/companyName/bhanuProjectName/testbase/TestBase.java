@@ -1,6 +1,7 @@
 package com.uiFramework.companyName.bhanuProjectName.testbase;
 
 import java.io.File;
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.nio.file.Files;
 import java.text.SimpleDateFormat;
@@ -17,6 +18,7 @@ import org.openqa.selenium.ie.InternetExplorerOptions;
 import org.testng.ITestResult;
 import org.testng.Reporter;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
@@ -50,7 +52,7 @@ public class TestBase {
 	
 	
 	@BeforeSuite
-	public void beforeSuite(){
+	public void beforeSuite() throws Exception{
 		extent = ExtentManager.getInstance();
 	}
 	
@@ -63,7 +65,7 @@ public class TestBase {
 	
 	@BeforeClass
 	public void beforeClass(){
-		test = extent.createTest(getClass().getName());
+		test = extent.createTest(getClass().getSimpleName());
 	}
 	
 	@BeforeMethod
@@ -72,18 +74,29 @@ public class TestBase {
 	}
 	
 	@AfterMethod
-	public void afterMethod(ITestResult result){
+	public void afterMethod(ITestResult result) throws IOException{
 		if(result.getStatus() == ITestResult.FAILURE){
-			test.log(Status.FAIL, result.getThrowable());	
+			test.log(Status.FAIL, result.getThrowable());
+			String imagePath = captureScreen(result.getName(),driver);
+			test.addScreenCaptureFromPath(imagePath);
 		}
 		else if(result.getStatus() == ITestResult.SUCCESS){
 			test.log(Status.PASS, result.getName()+" is pass");
+			String imagePath = captureScreen(result.getName(),driver);
+			test.addScreenCaptureFromPath(imagePath);
 		}
 		else if(result.getStatus() == ITestResult.SKIP){
 			test.log(Status.SKIP, result.getThrowable());
 		}
 		
 		extent.flush();
+	}
+	
+	@AfterTest
+	public void afterTest() throws Exception{
+		if(driver!=null){
+			driver.quit();
+		}
 	}
 	
 	public WebDriver getBrowserObject(BrowserType btype) throws Exception{
@@ -123,7 +136,7 @@ public class TestBase {
 		driver.manage().window().maximize();
 	}
 	
-	public String captureScreen(String fileName){
+	public String captureScreen(String fileName, WebDriver driver){
 		if(driver == null){
 			log.info("driver is null..");
 			return null;
@@ -131,6 +144,7 @@ public class TestBase {
 		if(fileName==""){
 			fileName = "blank";
 		}
+		Reporter.log("captureScreen method called");
 		File destFile = null;
 		Calendar calendar = Calendar.getInstance();
 		SimpleDateFormat formater = new SimpleDateFormat("dd_MM_yyyy_hh_mm_ss");
@@ -146,4 +160,14 @@ public class TestBase {
 		return destFile.toString();
 	}
 
+	
+	public void getNavigationScreen(WebDriver driver) {
+		log.info("capturing ui navigation screen...");
+		 String screen = captureScreen("", driver);
+		 try {
+			test.addScreencastFromPath(screen);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 }

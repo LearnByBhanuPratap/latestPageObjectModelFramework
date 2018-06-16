@@ -13,6 +13,6 @@ public class TestScreenShot extends TestBase{
 	@Test
 	public void testScreen(){
 		driver.get("https://www.seleniumhq.org/download/");
-		captureScreen("firstScreen");
+		captureScreen("firstScreen",driver);
 		}
 }

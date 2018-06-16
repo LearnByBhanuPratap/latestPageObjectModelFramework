@@ -3,7 +3,9 @@ package com.uiFramework;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class C {
+import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
+
+public class C extends TestBase{
 	int i = 1;
 	
 	@Test

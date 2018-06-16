@@ -21,4 +21,10 @@
             <class name="com.uiFramework.C"></class>
         </classes>
     </test>
+      <test name="TestScreenShot">
+        <classes>
+            <class name="com.uiFramework.companyName.bhanuProjectName.testScripts.TestScreenShot"></class>
+        </classes>
+    </test>
+    
 </suite>
