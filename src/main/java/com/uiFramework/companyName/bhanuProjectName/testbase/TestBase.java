@@ -170,4 +170,8 @@ public class TestBase {
 			e.printStackTrace();
 		}
 	}
+	
+	public static void logExtentReport(String s1){
+		test.log(Status.INFO, s1);
+	}
 }

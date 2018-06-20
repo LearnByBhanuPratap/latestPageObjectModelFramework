@@ -6,22 +6,24 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
+import com.aventstack.extentreports.Status;
 import com.uiFramework.companyName.bhanuProjectName.helper.assertion.VerificationHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.javaScript.JavaScriptHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
+import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 
 
 /**
  * 
  * @author Bhanu Pratap
- * https://www.youtube.com/user/MrBhanupratap29/playlists
  */
 public class LoginPage{
 	
 	private WebDriver driver;
 	private final Logger log = LoggerHelper.getLogger(LoginPage.class);
+	
 	WaitHelper waitHelper;
 	
 	@FindBy(xpath="//*[@id='header']/div[2]/div/div/nav/div[1]/a")
@@ -40,39 +42,51 @@ public class LoginPage{
 	WebElement successMsgObject;
 	
 	@FindBy(xpath="//*[@id='email_create']")
-	WebElement registration;
+	WebElement registrationEmailAddress;
 	
 	@FindBy(xpath="//*[@id='SubmitCreate']")
 	WebElement createAnAccount;
 	
+	@FindBy(xpath="//*[@id='center_column']/h1")
+	WebElement authenticate;
+	
+	@FindBy(xpath="//*[@id='create-account_form']/div/p")
+	WebElement createAnAccountMessage;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		waitHelper.waitForElement(signin,ObjectReader.reader.getExplicitWait());
+		new TestBase().getNavigationScreen(driver);
 	}
 	
 	public void clickOnSignInLink(){
 		log.info("clicked on sign in link...");
+		logExtentReport("clicked on sign in link...");
 		signin.click();
 	}
 	
 	public void enterEmailAddress(String emailAddress){
 		log.info("entering email address...."+emailAddress);
+		logExtentReport("entering email address...."+emailAddress);
 		this.emailAddress.sendKeys(emailAddress);
 	}
 	
 	public void enterPassword(String password){
 		log.info("entering password...."+password);
+		logExtentReport("entering password...."+password);
 		this.password.sendKeys(password);
 	}
 	
-	public HomePage clickOnSubmitButton(){
+	public NavigationMenu clickOnSubmitButton(){
 		log.info("clicking on submit button...");
-		new JavaScriptHelper(driver).scrollDownVertically();
+		logExtentReport("clicking on submit button...");
+		JavaScriptHelper javaScriptHelper = new JavaScriptHelper(driver);
+		javaScriptHelper.scrollDownVertically();
+		//new JavaScriptHelper(driver).scrollDownVertically();
 		submitLogin.click();
-		return new HomePage(driver);
+		return new NavigationMenu(driver);
 	}
 	
 	public boolean verifySuccessLoginMsg(){
@@ -82,7 +96,7 @@ public class LoginPage{
 	public void enterRegistrationEmail(){
 		String email = System.currentTimeMillis()+"@gmail.com";
 		log.info("entering registration email.."+email);
-		registration.sendKeys(email);	
+		registrationEmailAddress.sendKeys(email);	
 	}
 	
 	public RegistrationPage clickOnCreateAnAccount(){
@@ -95,6 +109,10 @@ public class LoginPage{
 		enterEmailAddress(emailAddress);
 		enterPassword(password);
 		clickOnSubmitButton();
+	}
+	
+	public void logExtentReport(String s1){
+		TestBase.test.log(Status.INFO, s1);
 	}
 
 }

@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
+import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 /**
  * 
  * @author Bhanu Pratap Singh
@@ -23,10 +24,12 @@ public class VerificationHelper {
 		try{
 			element.isDisplayed();
 			log.info("element is Displayed.."+element.getText());
+			TestBase.logExtentReport("element is Displayed.."+element.getText());
 			return true;
 		}
 		catch(Exception e){
 			log.error("element is not Displayed..", e.getCause());
+			TestBase.logExtentReport("element is not Displayed.."+e.getMessage());
 			return false;
 		}
 	}
@@ -35,6 +38,7 @@ public class VerificationHelper {
 		try{
 			element.isDisplayed();
 			log.info("element is present.."+element.getText());
+			TestBase.logExtentReport("element is present.."+element.getText());
 			return false;
 		}
 		catch(Exception e){

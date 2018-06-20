@@ -18,7 +18,6 @@ import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
 /**
  * 
  * @author Bhanu Pratap
- * https://www.youtube.com/user/MrBhanupratap29/playlists
  */
 public class ShoppinCartSummaryPage {
 
