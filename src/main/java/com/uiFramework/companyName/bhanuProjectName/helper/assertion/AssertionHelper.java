@@ -55,4 +55,21 @@ public class AssertionHelper {
 		log.info("verify object is not null..");
 		Assert.assertNotNull(s1);
 	}
+	
+	public static void fail(){
+		Assert.assertTrue(false);
+	}
+	
+	public static void pass(){
+		Assert.assertTrue(true);
+	}
+	
+	public static void updateTestStatus(boolean status){
+		if(status){
+			pass();
+		}
+		else{
+			fail();
+		}
+	}
 }

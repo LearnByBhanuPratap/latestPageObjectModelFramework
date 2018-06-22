@@ -7,6 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 import com.aventstack.extentreports.Status;
+import com.uiFramework.companyName.bhanuProjectName.helper.assertion.VerificationHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
@@ -24,7 +25,7 @@ public class MyAccountPage {
 	WaitHelper waitHelper;
 	
 	@FindBy(xpath="//*[contains(text(),'Welcome to your account. Here you can manage all of your personal information and orders.')]")
-	public WebElement yourAccountPageMessage;
+	public static WebElement yourAccountPageMessage;
 	
 	@FindBy(xpath="//*[contains(text(),'Order history and details')]")
 	public WebElement OrderHistoryAndDetails;
@@ -57,6 +58,10 @@ public class MyAccountPage {
 		OrderHistoryAndDetails.click();
 		log.info("clciked on "+OrderHistoryAndDetails.getText());
 		TestBase.test.log(Status.INFO, "clciked on "+OrderHistoryAndDetails.getText());
+	}
+	
+	public  boolean isYourAccountPageMessage(){
+		return new VerificationHelper(driver).isDisplayed(yourAccountPageMessage);
 	}
 
 }

@@ -28,7 +28,7 @@ public class ShoppinCartSummaryPage {
 	@FindBy(xpath="//*[@id='columns']/div[1]/span[2]")
 	WebElement yourShoppingCart;
 	
-	@FindBy(xpath="//*[@id='columns']/div[1]/span[2]")
+	@FindBy(xpath="//a[@title='Delete']")
 	List<WebElement> quantity_delete;
 	
 	@FindBy(xpath="//*[contains(text(),'Your shopping cart is empty')]")
@@ -59,12 +59,6 @@ public class ShoppinCartSummaryPage {
 	}
 	
 	public boolean verifyEmptyShoppingCartMesssage(){
-		try {
-			log.info("verifying deleted Shopping Cart Messsage..");
-			emptyShoppingCartMsg.isDisplayed();
-			return true;
-		} catch (Exception e) {
-			return false;
-		}
+		return new VerificationHelper(driver).isDisplayed(emptyShoppingCartMsg);
 	}
 }

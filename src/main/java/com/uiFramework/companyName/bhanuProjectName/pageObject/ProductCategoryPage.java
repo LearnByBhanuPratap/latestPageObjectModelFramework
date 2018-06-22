@@ -15,6 +15,7 @@ import com.uiFramework.companyName.bhanuProjectName.helper.javaScript.JavaScript
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.select.DropDownHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
+import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 
 /**
  * 
@@ -24,6 +25,7 @@ public class ProductCategoryPage {
 
 	private WebDriver driver;
 	private final Logger log = LoggerHelper.getLogger(ProductCategoryPage.class);
+	
 	WaitHelper waitHelper;
 	
 	@FindBy(xpath="//*[@id='layered_block_left']/p")
@@ -53,6 +55,8 @@ public class ProductCategoryPage {
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		waitHelper.waitForElement(catalogTextObj,ObjectReader.reader.getExplicitWait());
+		TestBase.logExtentReport("ProductCategoryPage object creatd...");
+		new TestBase().getNavigationScreen(driver);
 	}
 	
 	public void mouseOverOnProduct(int number){
@@ -117,9 +121,11 @@ public class ProductCategoryPage {
 	public void selectFirstProduct() {
 		Actions obj = new Actions(driver);
 		log.info("performning mouse over on first product of page..");
-		obj.moveToElement(driver.findElements(By.xpath(".//*[@id='center_column']/ul/li")).get(0)).build().perform();
+		TestBase.logExtentReport("performning mouse over on first product of page..");
+		obj.moveToElement(totalProducts.get(0)).build().perform();
 		log.info("clicking on add to basket..");
-		driver.findElement(By.xpath(".//*[@id='center_column']/ul/li[1]/div/div[2]/div[2]/a[1]/span")).click();
+		TestBase.logExtentReport("clicking on add to basket..");
+		addToCart.click();
 	}
 	
 	public int getTotalProducts(){

@@ -14,6 +14,7 @@ import org.openqa.selenium.support.ui.Select;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
+import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 
 /**
  * 
@@ -96,35 +97,42 @@ public class RegistrationPage {
 		PageFactory.initElements(driver, this);
 		waitHelper = new WaitHelper(driver);
 		waitHelper.waitForElement(mrRadioButton,ObjectReader.reader.getExplicitWait());
+		TestBase.logExtentReport("RegistrationPage object created...");
 	}
 
 	public void setMrRadioButton() {
 		log.info("selecting mr checkbox..");
+		TestBase.logExtentReport("selecting mr checkbox..");
 		this.mrRadioButton.click();
 	}
 
 	public void setMrsRadioButton() {
 		log.info("selecting mrs checkbox..");
+		TestBase.logExtentReport("selecting mrs checkbox..");
 		this.mrsRadioButton.click();
 	}
 
 	public void setFirstName(String firstName) {
 		log.info("entering firstName.." + firstName);
+		TestBase.logExtentReport("entering firstName.." + firstName);
 		this.firstName.sendKeys(firstName);
 	}
 
 	public void setLastname(String lastname) {
 		log.info("entering lastname.." + lastname);
+		TestBase.logExtentReport("entering lastname.." + lastname);
 		this.lastname.sendKeys(lastname);
 	}
 
 	public void setEmailAddress(String emailAddress) {
 		log.info("entering emailAddress.." + emailAddress);
+		TestBase.logExtentReport("entering emailAddress.." + emailAddress);
 		this.emailAddress.sendKeys(emailAddress);
 	}
 
 	public void setPassword(String password) {
 		log.info("entering password.." + password);
+		TestBase.logExtentReport("entering password.." + password);
 		this.password.sendKeys(password);
 	}
 
@@ -168,7 +176,6 @@ public class RegistrationPage {
 				break;
 			}
 		}
-
 	}
 
 	public void setYourAddressFirstName(String yourAddressFirstName) {

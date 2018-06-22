@@ -36,6 +36,10 @@ import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.resource.ResourceHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
+import com.uiFramework.companyName.bhanuProjectName.pageObject.LoginPage;
+import com.uiFramework.companyName.bhanuProjectName.pageObject.MyAccountPage;
+import com.uiFramework.companyName.bhanuProjectName.pageObject.NavigationMenu;
+import com.uiFramework.companyName.bhanuProjectName.pageObject.RegistrationPage;
 import com.uiFramework.companyName.bhanuProjectName.utils.ExtentManager;
 /**
  * 
@@ -49,7 +53,6 @@ public class TestBase {
 	public WebDriver driver;
 	private Logger log = LoggerHelper.getLogger(TestBase.class);
 	public static File reportDirectery;
-	
 	
 	@BeforeSuite
 	public void beforeSuite() throws Exception{
