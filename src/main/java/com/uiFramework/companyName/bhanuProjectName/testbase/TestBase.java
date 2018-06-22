@@ -168,7 +168,7 @@ public class TestBase {
 		log.info("capturing ui navigation screen...");
 		 String screen = captureScreen("", driver);
 		 try {
-			test.addScreencastFromPath(screen);
+			test.addScreenCaptureFromPath(screen);
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
@@ -176,5 +176,10 @@ public class TestBase {
 	
 	public static void logExtentReport(String s1){
 		test.log(Status.INFO, s1);
+	}
+	
+	public void getApplicationUrl(String url){
+		driver.get(url);
+		logExtentReport("navigating to ..."+url);
 	}
 }

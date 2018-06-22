@@ -98,6 +98,7 @@ public class RegistrationPage {
 		waitHelper = new WaitHelper(driver);
 		waitHelper.waitForElement(mrRadioButton,ObjectReader.reader.getExplicitWait());
 		TestBase.logExtentReport("RegistrationPage object created...");
+		new TestBase().getNavigationScreen(driver);
 	}
 
 	public void setMrRadioButton() {
@@ -143,7 +144,7 @@ public class RegistrationPage {
 			WebElement c = itr.next();
 			String text = c.getText().trim().toString();
 			if (text.equals(day)) {
-				System.out.println(day);
+				TestBase.logExtentReport("selecting date as: "+day);
 				c.click();
 				break;
 			}
@@ -158,6 +159,7 @@ public class RegistrationPage {
 			WebElement click = itr.next();
 			String text = click.getText().trim();
 			if (text.equals(month)) {
+				TestBase.logExtentReport("selecting month as: "+month);
 				click.click();
 				break;
 			}
@@ -172,6 +174,7 @@ public class RegistrationPage {
 			WebElement click = itr.next();
 			String text = click.getText().trim();
 			if (text.equals(year)) {
+				TestBase.logExtentReport("selecting year as: "+year);
 				click.click();
 				break;
 			}
@@ -180,66 +183,79 @@ public class RegistrationPage {
 
 	public void setYourAddressFirstName(String yourAddressFirstName) {
 		log.info("entering yourAddressFirstName.." + yourAddressFirstName);
+		TestBase.logExtentReport("entering yourAddressFirstName.." + yourAddressFirstName);
 		this.yourAddressFirstName.sendKeys(yourAddressFirstName);
 	}
 
 	public void setYourAddressLastName(String yourAddressLastName) {
 		log.info("entering yourAddressLastName.." + yourAddressLastName);
+		TestBase.logExtentReport("entering yourAddressLastName.." + yourAddressLastName);
 		this.yourAddressLastName.sendKeys(yourAddressLastName);
 	}
 
 	public void setYourAddressCompany(String yourAddressCompany) {
 		log.info("entering yourAddressCompany.." + yourAddressCompany);
+		TestBase.logExtentReport("entering yourAddressCompany.." + yourAddressCompany);
 		this.yourAddressCompany.sendKeys(yourAddressCompany);
 	}
 
 	public void setAddress(String address) {
 		log.info("entering address.." + address);
+		TestBase.logExtentReport("entering address.." + address);
 		this.address.sendKeys(address);
 	}
 
 	public void setAddress2(String address2) {
 		log.info("entering address2.." + address2);
+		TestBase.logExtentReport("entering address2.." + address2);
 		this.address2.sendKeys(address2);
 	}
 
 	public void setYourAddressCity(String yourAddressCity) {
 		log.info("entering yourAddressCity.." + yourAddressCity);
+		TestBase.logExtentReport("entering yourAddressCity.." + yourAddressCity);
 		this.yourAddressCity.sendKeys(yourAddressCity);
 	}
 
 	public void setYourAddressState(String yourAddressState) {
 		log.info("entering yourAddressState.." + yourAddressState);
+		TestBase.logExtentReport("entering yourAddressState.." + yourAddressState);
 		new Select(this.yourAddressState).selectByVisibleText(yourAddressState);
 	}
 
 	public void setYourAddressPostCode(String yourAddressPostCode) {
 		log.info("entering yourAddressPostCode.." + yourAddressPostCode);
+		TestBase.logExtentReport("entering yourAddressPostCode.." + yourAddressPostCode);
 		this.yourAddressPostCode.sendKeys(yourAddressPostCode);
 	}
 
 	public void setAdditionalInformation(String additionalInformation) {
 		log.info("entering additionalInformation.." + additionalInformation);
+		TestBase.logExtentReport("entering additionalInformation.." + additionalInformation);
 		this.additionalInformation.sendKeys(additionalInformation);
 	}
 
 	public void setHomePhone(String homePhone) {
 		log.info("entering homePhone.." + homePhone);
+		TestBase.logExtentReport("entering homePhone.." + homePhone);
 		this.homePhone.sendKeys(homePhone);
 	}
 
 	public void setMobilePhone(String mobilePhone) {
 		log.info("entering mobilePhone.." + mobilePhone);
+		TestBase.logExtentReport("entering mobilePhone.." + mobilePhone);
 		this.mobilePhone.sendKeys(mobilePhone);
 	}
 
 	public void setAddressAlias(String addressAlias) {
 		log.info("entering addressAlias.." + addressAlias);
+		TestBase.logExtentReport("entering addressAlias.." + addressAlias);
 		this.addressAlias.sendKeys(addressAlias);
 	}
 
 	public void clickRegistration() {
 		log.info("clicked on registration.." + registration);
+		TestBase.logExtentReport("clicked on registration.." + registration);
 		this.registration.click();
 	}
 

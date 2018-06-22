@@ -23,8 +23,8 @@ public class PropertyReader implements ConfigReader {
 			OR = new Properties();
 			OR.load(file);
 			
-			filePath = ResourceHelper.getResourcePath("src/main/resources/configfile/config1.properties");
-			file = new FileInputStream(new File(filePath));
+			String filePath1 = ResourceHelper.getResourcePath("src/main/resources/configfile/config1.properties");
+			file = new FileInputStream(new File(filePath1));
 			OR = new Properties();
 			OR.load(file);
 		} catch (Exception e) {
@@ -46,6 +46,19 @@ public class PropertyReader implements ConfigReader {
 
 	public BrowserType getBrowserType() {
 		return BrowserType.valueOf(OR.getProperty("browserType"));
+	}
+
+	public String getUrl() {
+		System.out.println(OR.getProperty("applicationUrl"));
+		return OR.getProperty("applicationUrl");
+	}
+
+	public String getUserName() {
+		return OR.getProperty("userName");
+	}
+
+	public String getPassword() {
+		return OR.getProperty("password");
 	}
 
 }

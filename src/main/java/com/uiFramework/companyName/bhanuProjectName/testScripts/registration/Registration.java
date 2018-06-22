@@ -22,12 +22,13 @@ public class Registration extends TestBase{
 	
 	@Test
 	public void testLoginToApplication(){
+		// go to application
 		driver.get("http://automationpractice.com/index.php");
 		loginPage = new LoginPage(driver);
 		loginPage.clickOnSignInLink();
 		loginPage.enterRegistrationEmail();
 		loginPage.clickOnCreateAnAccount();
-		
+		// enter registration data
 		register = new RegistrationPage(driver);
 		register.setMrRadioButton();
 		register.setFirstName("firstName");
