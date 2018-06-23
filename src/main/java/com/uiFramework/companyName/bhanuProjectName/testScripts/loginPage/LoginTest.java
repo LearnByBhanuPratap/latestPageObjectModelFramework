@@ -15,7 +15,7 @@ import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 public class LoginTest extends TestBase{
 	private final Logger log = LoggerHelper.getLogger(LoginTest.class);
 	
-	@Test
+	@Test(description="Login test with valid credentials")
 	public void testLoginToApplication(){
 		getApplicationUrl(ObjectReader.reader.getUrl());
 		LoginPage loginPage = new LoginPage(driver);

@@ -1,5 +1,7 @@
 package com.uiFramework.companyName.bhanuProjectName.pageObject;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -9,6 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.testng.Assert;
 
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.javaScript.JavaScriptHelper;
@@ -139,5 +142,35 @@ public class ProductCategoryPage {
 	public void selectSortByFilter(String dataToSelect){
 		DropDownHelper dropdown = new DropDownHelper(driver);
 		dropdown.selectUsingVisibleText(sortBy, dataToSelect);
+	}
+	
+	public boolean verifyArrayHasAscendingData(ArrayList<Integer> array){
+		for (int i = 0; i < array.size() - 1; i++) {
+			// this condition will check all next price should be smaller than previous one.
+			// next price can be grater and equal
+			if (array.get(i) <= array.get(i + 1)) {
+				log.info("obj.get(i).." + array.get(i));
+				log.info("obj.get(i+1).." + array.get(i + 1));
+			} else {
+				log.info("price filter is not working");
+				return false;
+			}
+		}
+		return true;
+	}
+	
+	public ArrayList<Integer> getPriceMassagedData(Iterator<WebElement> itr){
+		ArrayList<Integer> array = new ArrayList<Integer>();
+		while (itr.hasNext()) {
+			String p = itr.next().getText();
+			if (p.contains("$")) {
+				String actualData = p.substring(1);
+				log.info(actualData);
+				double p1 = Double.parseDouble(actualData);
+				int productPrice = (int) (p1);
+				array.add(productPrice);
+			}
+		}
+		return array;
 	}
 }

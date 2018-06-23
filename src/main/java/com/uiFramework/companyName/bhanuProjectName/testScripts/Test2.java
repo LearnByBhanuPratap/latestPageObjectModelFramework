@@ -10,21 +10,21 @@ public class Test2 extends TestBase{
 	
 	@Test
 	public void testLogin(){
-		AssertionHelper.makeTrue();
+		AssertionHelper.markPass();
 	}
 	
 	@Test
 	public void testLogin1(){
-		AssertionHelper.makeFalse();
+		AssertionHelper.markFail();
 	}
 	
 	@Test
 	public void testLogin2(){
-		AssertionHelper.makeTrue();
+		AssertionHelper.markPass();
 	}
 	
 	@Test
 	public void testLogin3(){
-		AssertionHelper.makeFalse();
+		AssertionHelper.markFail();
 	}
 }

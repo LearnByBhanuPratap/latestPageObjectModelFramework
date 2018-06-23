@@ -18,22 +18,22 @@ public class AssertionHelper {
 		Assert.assertEquals(s1, s1);
 	}
 	
-	public static void makeTrue(){
+	public static void markPass(){
 		log.info("making script PASS..");
 		Assert.assertTrue(true);
 	}
 	
-	public static void makeTrue(String message){
+	public static void markPass(String message){
 		log.info("making script PASS.."+ message);
 		Assert.assertTrue(true, message);
 	}
 	
-	public static void makeFalse(){
+	public static void markFail(){
 		log.info("making script FAIL..");
 		Assert.assertTrue(false);
 	}
 	
-	public static void makeFalse(String message){
+	public static void markFail(String message){
 		log.info("making script FAIL.."+message);
 		Assert.assertTrue(false, message);
 	}
