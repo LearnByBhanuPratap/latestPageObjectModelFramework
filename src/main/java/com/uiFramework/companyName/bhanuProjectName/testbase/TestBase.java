@@ -33,6 +33,7 @@ import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.IExploreBrowser;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.PropertyReader;
+import com.uiFramework.companyName.bhanuProjectName.helper.excel.ExcelHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.javaScript.JavaScriptHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.resource.ResourceHelper;
@@ -65,12 +66,9 @@ public class TestBase {
 		ObjectReader.reader = new PropertyReader();
 		reportDirectery = new File(ResourceHelper.getResourcePath("src/main/resources/screenShots"));
 		setUpDriver(ObjectReader.reader .getBrowserType());
-	}
-	
-	@BeforeClass
-	public void beforeClass(){
 		test = extent.createTest(getClass().getSimpleName());
 	}
+	
 	
 	@BeforeMethod
 	public void beforeMethod(Method method){
@@ -185,5 +183,13 @@ public class TestBase {
 	public void getApplicationUrl(String url){
 		driver.get(url);
 		logExtentReport("navigating to ..."+url);
+	}
+	
+	public Object[][] getExcelData(String excelName, String sheetName){
+		String excelLocation = ResourceHelper.getResourcePath("src/main/resources/configfile/")+excelName;
+		log.info("excel location "+excelLocation);
+		ExcelHelper excelHelper = new ExcelHelper();
+		Object[][] data = excelHelper.getExcelData(excelLocation, sheetName);
+		return data;
 	}
 }

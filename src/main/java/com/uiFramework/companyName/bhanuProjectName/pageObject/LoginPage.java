@@ -52,6 +52,9 @@ public class LoginPage{
 	
 	@FindBy(xpath="//*[@id='create-account_form']/div/p")
 	WebElement createAnAccountMessage;
+	
+	@FindBy(xpath="//*[@id='header']/div[2]/div/div/nav/div[2]/a")
+	WebElement logout;
 
 	public LoginPage(WebDriver driver) {
 		this.driver = driver;
@@ -110,6 +113,12 @@ public class LoginPage{
 		enterEmailAddress(emailAddress);
 		enterPassword(password);
 		clickOnSubmitButton();
+	}
+	
+	public void logout(){
+		logout.click();
+		log.info("clicked on logout link");
+		waitHelper.waitForElement(signin, ObjectReader.reader.getExplicitWait());
 	}
 	
 	public void logExtentReport(String s1){

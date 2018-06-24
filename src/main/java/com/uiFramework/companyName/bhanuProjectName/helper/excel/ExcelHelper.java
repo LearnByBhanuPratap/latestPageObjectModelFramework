@@ -36,7 +36,7 @@ public class ExcelHelper {
 			// count active columns in row
 			int totalColumn = sheet.getRow(0).getLastCellNum();
 
-			dataSets = new Object[totalRow+1][totalColumn];
+			dataSets = new Object[totalRow][totalColumn-1];
 
 			// Iterate Through each Rows one by one.
 			Iterator<Row> rowIterator = sheet.iterator();
@@ -45,24 +45,26 @@ public class ExcelHelper {
 				i++;
 				// for Every row , we need to iterator over columns
 				Row row = rowIterator.next();
-
 				Iterator<Cell> cellIterator = row.cellIterator();
 				int j = 0;
 				while (cellIterator.hasNext()) {
-					j++;
+					
 					Cell cell = cellIterator.next();
-
+					if (cell.getStringCellValue().contains("Start")) {
+						i = 0;
+						break;
+					}
 					switch (cell.getCellTypeEnum()) {
 					case STRING:
-						dataSets[i-1][j-1] = cell.getStringCellValue();
+						dataSets[i-1][j++] = cell.getStringCellValue();
 						break;
 					case NUMERIC:
-						dataSets[i-1][j-1] = cell.getNumericCellValue();
+						dataSets[i-1][j++] = cell.getNumericCellValue();
 						break;
 					case BOOLEAN:
-						dataSets[i-1][j-1] = cell.getBooleanCellValue();
+						dataSets[i-1][j++] = cell.getBooleanCellValue();
 					case FORMULA:
-						dataSets[i-1][j-1] = cell.getCellFormula();
+						dataSets[i-1][j++] = cell.getCellFormula();
 						break;
 
 					default:
@@ -110,11 +112,11 @@ public class ExcelHelper {
 	public static void main(String[] args) {
 	 ExcelHelper	 excelHelper = new ExcelHelper();
 	 String excelLocation = ResourceHelper.getResourcePath("src/main/resources/configfile/testData.xlsx");
-	 //Object[][] data = excelHelper.getExcelData(excelLocation, "Login");
+	 Object[][] data = excelHelper.getExcelData(excelLocation, "loginData");
 	 //System.out.println(data);
-	 excelHelper.updateResult(excelLocation, "TestScripts", "Login", "PASS");
-	 excelHelper.updateResult(excelLocation, "TestScripts", "Registration", "FAIL");
-	 excelHelper.updateResult(excelLocation, "TestScripts", "Add to Cart", "PASS");
+//	 excelHelper.updateResult(excelLocation, "TestScripts", "Login", "PASS");
+//	 excelHelper.updateResult(excelLocation, "TestScripts", "Registration", "FAIL");
+//	 excelHelper.updateResult(excelLocation, "TestScripts", "Add to Cart", "PASS");
 	 
 	}
 }
