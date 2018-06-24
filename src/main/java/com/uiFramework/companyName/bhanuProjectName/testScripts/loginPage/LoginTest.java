@@ -18,10 +18,13 @@ public class LoginTest extends TestBase{
 	@Test(description="Login test with valid credentials")
 	public void testLoginToApplication(){
 		getApplicationUrl(ObjectReader.reader.getUrl());
+		
 		LoginPage loginPage = new LoginPage(driver);
+		
 		loginPage.loginToApplication(ObjectReader.reader.getUserName(), ObjectReader.reader.getPassword());
+		
 		boolean status = loginPage.verifySuccessLoginMsg();
+		
 		AssertionHelper.updateTestStatus(status);
 	}
-
 }

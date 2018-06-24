@@ -59,6 +59,7 @@ public class LoginPage{
 		waitHelper = new WaitHelper(driver);
 		waitHelper.waitForElement(signin,ObjectReader.reader.getExplicitWait());
 		new TestBase().getNavigationScreen(driver);
+		TestBase.logExtentReport("Login Page Object Created");
 	}
 	
 	public void clickOnSignInLink(){

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.testng.annotations.Test;
 
 import com.uiFramework.companyName.bhanuProjectName.helper.assertion.AssertionHelper;
+import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.pageObject.LoginPage;
 import com.uiFramework.companyName.bhanuProjectName.pageObject.MyAccountPage;
@@ -13,9 +14,9 @@ import com.uiFramework.companyName.bhanuProjectName.testbase.TestBase;
 /**
  * @author Bhanu Pratap
  */
-public class Registration extends TestBase{
+public class RegistrationTest extends TestBase{
 	
-	private final Logger log = LoggerHelper.getLogger(Registration.class);
+	private final Logger log = LoggerHelper.getLogger(RegistrationTest.class);
 	LoginPage loginPage;
 	RegistrationPage register;
 	MyAccountPage myAccountPage;
@@ -23,11 +24,13 @@ public class Registration extends TestBase{
 	@Test
 	public void testLoginToApplication(){
 		// go to application
-		driver.get("http://automationpractice.com/index.php");
+		getApplicationUrl(ObjectReader.reader.getUrl());
+		
 		loginPage = new LoginPage(driver);
 		loginPage.clickOnSignInLink();
 		loginPage.enterRegistrationEmail();
 		loginPage.clickOnCreateAnAccount();
+		
 		// enter registration data
 		register = new RegistrationPage(driver);
 		register.setMrRadioButton();
@@ -47,6 +50,7 @@ public class Registration extends TestBase{
 		register.setMobilePhone("9999999999");
 		register.setAddressAlias("addressAlias");
 		register.clickRegistration();
+		
 		myAccountPage = new MyAccountPage(driver);
 		boolean status = myAccountPage.isYourAccountPageMessage();
 		

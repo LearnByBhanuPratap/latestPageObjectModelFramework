@@ -85,8 +85,8 @@ public class TestBase {
 		}
 		else if(result.getStatus() == ITestResult.SUCCESS){
 			test.log(Status.PASS, result.getName()+" is pass");
-			String imagePath = captureScreen(result.getName(),driver);
-			test.addScreenCaptureFromPath(imagePath);
+			//String imagePath = captureScreen(result.getName(),driver);
+			//test.addScreenCaptureFromPath(imagePath);
 		}
 		else if(result.getStatus() == ITestResult.SKIP){
 			test.log(Status.SKIP, result.getThrowable());
