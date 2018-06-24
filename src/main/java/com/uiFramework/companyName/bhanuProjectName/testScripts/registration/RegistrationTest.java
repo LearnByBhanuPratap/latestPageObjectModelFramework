@@ -22,17 +22,17 @@ public class RegistrationTest extends TestBase{
 	MyAccountPage myAccountPage;
 	
 	@Test
-	public void testLoginToApplication(){
+	public void testRegistration(){
 		// go to application
 		getApplicationUrl(ObjectReader.reader.getUrl());
 		
 		loginPage = new LoginPage(driver);
 		loginPage.clickOnSignInLink();
 		loginPage.enterRegistrationEmail();
-		loginPage.clickOnCreateAnAccount();
+		
+		register = loginPage.clickOnCreateAnAccount();
 		
 		// enter registration data
-		register = new RegistrationPage(driver);
 		register.setMrRadioButton();
 		register.setFirstName("firstName");
 		register.setLastname("lastname");

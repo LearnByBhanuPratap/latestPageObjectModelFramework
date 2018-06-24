@@ -120,7 +120,7 @@ public class JavaScriptHelper {
 	 * This method will zoom screen by 60%
 	 */
 	public void zoomInBy60Percentage(){
-		executeScript("document.body.style.zoom='60%'");
+		executeScript("document.body.style.zoom='40%'");
 	}
 	
 	/**

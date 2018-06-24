@@ -33,6 +33,7 @@ import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.IExploreBrowser;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.ObjectReader;
 import com.uiFramework.companyName.bhanuProjectName.helper.browserConfiguration.config.PropertyReader;
+import com.uiFramework.companyName.bhanuProjectName.helper.javaScript.JavaScriptHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.logger.LoggerHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.resource.ResourceHelper;
 import com.uiFramework.companyName.bhanuProjectName.helper.wait.WaitHelper;
@@ -73,7 +74,8 @@ public class TestBase {
 	
 	@BeforeMethod
 	public void beforeMethod(Method method){
-		test.log(Status.INFO, method.getName()+" test started");
+		test.log(Status.INFO, method.getName()+"**************test started***************");
+		log.info("**************"+method.getName()+"Started***************");
 	}
 	
 	@AfterMethod
@@ -91,7 +93,7 @@ public class TestBase {
 		else if(result.getStatus() == ITestResult.SKIP){
 			test.log(Status.SKIP, result.getThrowable());
 		}
-		
+		log.info("**************"+result.getName()+"Finished***************");
 		extent.flush();
 	}
 	
@@ -166,7 +168,9 @@ public class TestBase {
 	
 	public void getNavigationScreen(WebDriver driver) {
 		log.info("capturing ui navigation screen...");
+		new JavaScriptHelper(driver).zoomInBy60Percentage();
 		 String screen = captureScreen("", driver);
+		 new JavaScriptHelper(driver).zoomInBy100Percentage();
 		 try {
 			test.addScreenCaptureFromPath(screen);
 		} catch (IOException e) {
