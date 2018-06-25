@@ -13,6 +13,7 @@ public class GetFromMaster {
 		int a5 = 10;
 		int b6 = 30;
 		int c = a+b;
+		int c1 = 900;
 		System.out.println(c);
 		for(int i =0; i<9; i++){
 			c = i;
