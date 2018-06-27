@@ -4,6 +4,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.ChartLocation;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.uiFramework.companyName.bhanuProjectName.helper.resource.ResourceHelper;
 /**
  * 
  * @author Bhanu Pratap Singh
@@ -15,7 +16,8 @@ public class ExtentManager {
 	
 	public static ExtentReports getInstance(){
 		if(extent == null){
-			return createInstance("test-output/extent.html");
+			String location = ResourceHelper.getResourcePath("src/main/resources/reports/extent.html");
+			return createInstance(location);
 		}
 		else{
 			return extent;
