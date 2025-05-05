@@ -46,7 +46,7 @@
 		<dependency>
 			<groupId>org.apache.poi</groupId>
 			<artifactId>poi-ooxml</artifactId>
-			<version>3.16</version>
+			<version>5.4.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
 		<!-- https://mvnrepository.com/artifact/com.aventstack/extentreports -->
